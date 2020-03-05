@@ -26,6 +26,7 @@ import UIKit
     
     public private(set) static var isKeyboardVisible = false
     public static var buffer: CGFloat = 0.0
+    public static var isEnabled = true
     public static var paddingForCurrentAvoidingView: CGFloat = 0.0
     @objc public static var padding: CGFloat = 0.0 {
         willSet {
@@ -57,6 +58,7 @@ import UIKit
     }
     
     class func didChange(_ notification: Foundation.Notification) {
+        guard isEnabled else { return }
         var isKeyBoardShowing = false
         // isKeyBoardShowing and is it merged and docked.
         
